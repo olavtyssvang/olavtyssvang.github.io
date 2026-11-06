@@ -1,36 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base target="_blank" rel="noopener noreferrer">
-    <link rel="stylesheet" href="style/common.css">
-    <title>Karl Olav Tyssvang</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Research interests of Karl Olav Tyssvang: finite element systems, discrete geometry, and tensor-valued finite elements.">
+    <title>Research | Karl Olav Tyssvang</title>
+    <link rel="stylesheet" href="./style/common.css">
 </head>
 <body>
-
-    <header>
-        <a href="./index.html" target="_self">About</a>
-        <a href="./research.html" target="_self" style="color: var(--text-link)">Research</a>
-        <a href="./events.html" target="_self">Events</a>
-        <a href="./cv.pdf" target="_self">CV</a>
-        <a href="./contact.html" target="_self">Contact</a>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <nav class="site-nav" aria-label="Main navigation">
+                <a href="./index.html">About</a>
+                <a href="./research.html" aria-current="page">Research</a>
+                <a href="./publications.html">Publications</a>
+                <a href="./events.html">Events</a>
+                <a href="./cv.pdf">CV</a>
+                <a href="./contact.html">Contact</a>
+            </nav>
+        </div>
     </header>
 
-    <div class="content">
-    <h1>Research</h1>
-    
-    <p>
-        I am currently researching some specific examples of primal formulations and virtual elements. A bigger scope question that I'm interested in
-        is where the limits of exact computability are for different finite element discretizations.
-    </p>
+    <main id="main" class="container content">
+        <div class="page-heading">
+            <h1>Research</h1>
+        </div>
 
-    </div>
+        <section class="section" aria-labelledby="systems-title">
+            <h2 id="systems-title">Discrete geometry</h2>
+<p>
+    I enjoy thinking about finite elements from a geometric point of view, as algebraic objects held together by constraints imposed on restriction maps. 
+    This perspective was made popular by the theory of <a href="doi.org/10.1090/mcom/2995">finite element systems</a>. Therein they effectively treat finite elements 
+    as discrete sheafs, and this has many advantages. 
+</p>
+<p>
+    I've been doing some work on this kind of stuff with <a href="https://borisandrews.github.io/">Boris</a>. 
+    It seems potentially lucrative to borrow more ideas from algebraic geometry. Therefore I am currently working my way through <a href="https://math.stanford.edu/~vakil/">Ravi Vakil</a>'s 
+    book <a href="https://math.stanford.edu/~vakil/216blog/">The Rising Sea</a>, which is really great.
+</p>
+        </section>
 
-    <footer>
-        <p style="margin: 0;"></p>
+        <section class="section" aria-labelledby="tensor-title">
+            <h2 id="tensor-title">Finite elements</h2>
+<p>
+    At this point our collective understanding for discretisations of vector fields is mostly satisfactory, but there is still much unknown 
+    about tensor finite elements. This up-and-coming field, which <a href="https://kaibohu.github.io/">Kaibo</a> and <a href="https://people.math.ethz.ch/~hiptmair/Homepage/index.html">Ralf</a>
+    has dubbed "Finite Element Tensor Calculus", will no doubt see a lot of activity in the coming years. I inted to join this effort. 
+    Specifically, I am interested in the point of view of <a href="https://arxiv.org/abs/2503.03243">form-valued forms</a> (see also <a href="https://arxiv.org/abs/2505.17243">Finite element spaces of double forms</a>).
+</p>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <span>Karl Olav Tyssvang · Mathematical Institute, Oxford</span>
+            <a href="./contact.html">Contact</a>
+        </div>
     </footer>
-
 </body>
 </html>

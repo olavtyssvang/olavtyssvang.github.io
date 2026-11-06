@@ -1,104 +1,132 @@
-:root{
-    --text-white: white;
-    --text-black: black;
-
-    --text-link: rgb(60, 138, 240);
-
-    --background-color: rgba(245, 245, 245, 0.97);
-    --foreground-color: whitesmoke;
-
-    --divider-color: rgb(185, 185, 185);
+/* A small, responsive academic site. No JavaScript or external fonts required. */
+:root {
+    --paper: #fbfaf7;
+    --ink: #202d2b;
+    --muted: #52615d;
+    --accent: #116458;
+    --rule: #d5ded9;
 }
 
-body{
-    position: absolute;
-    margin: 0;
-    overflow-x: hidden;
-    width: 100vw;
-    min-height: 100vh;
-    color: var(--text-black);
-    background-color: var(--foreground-color);
-
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-a {
-    color: var(--text-link);
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-header {
-    position: fixed;
-    width: 100%;
+* , *::before, *::after { box-sizing: border-box; }
+html { font-size: 100%; }
+body {
     display: flex;
-    justify-content: center;
-    border-bottom: 1px solid var(--divider-color);
-    background-color: var(--background-color);
-    z-index: 10;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 1rem/1.65 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-text-size-adjust: 100%;
+    overflow-wrap: break-word;
 }
-
-footer {
-    position: inherit;
-    bottom: 0;
-    height: 5em;
-    line-height: 5em;
-    width: 100%;
-    text-align: center;
-    border-top: 1px solid var(--divider-color);
+.container { width: min(100% - 2.5rem, 58rem); margin-inline: auto; }
+a {
+    color: var(--accent);
+    text-decoration-thickness: .075em;
+    text-underline-offset: .18em;
 }
-
-header > a {
-    padding: 1rem;
-    color: var(--text-black);
+a:hover { text-decoration-thickness: .14em; }
+a:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 2px;
 }
+img { display: block; max-width: 100%; height: auto; }
 
-header > a:hover {
+.skip-link {
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    z-index: 20;
+    padding: .55rem .8rem;
+    transform: translateY(-160%);
+    background: var(--paper);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.site-header { border-bottom: 1px solid var(--rule); }
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: .45rem 1.75rem;
+    padding-block: 1.1rem;
+}
+.site-name {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: var(--ink);
     text-decoration: none;
-    color: var(--text-link);
+    white-space: nowrap;
+}
+.site-nav { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; }
+.site-nav a {
+    padding-block: .2rem;
+    color: var(--ink);
+    font-size: .94rem;
+    text-decoration: none;
+}
+.site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--accent); }
+.site-nav a[aria-current="page"] {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: .42em;
 }
 
-.content {
-    padding-top: 5rem;
-    padding-bottom: 8rem;
-    max-width: 1000px;
-    margin: auto;
+.content { flex: 1; padding-block: 3.4rem 5rem; }
+h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 600; }
+h1 { font-size: clamp(2.0rem, 4vw, 2.6rem); letter-spacing: -.035em; line-height: 1.15; margin: .3rem 0 1.15rem; }
+h2 { font-size: clamp(1.35rem, 3vw, 1.65rem); line-height: 1.3; margin: 0 0 .7rem; }
+p { max-width: 72ch; margin: 0 0 1.1rem; }
+.eyebrow {
+    margin-bottom: .6rem;
+    color: var(--accent);
+    font-size: .77rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    line-height: 1.5;
+    text-transform: uppercase;
 }
+.lede { font-size: 1.2rem; line-height: 1.5; color: var(--muted); }
+.intro { display: grid; grid-template-columns: minmax(0, 1fr) 13rem; align-items: start; gap: 3rem; }
+.portrait { margin: .3rem 0 0; }
+.portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 3px; }
+.quick-links { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; margin-top: 1.6rem; font-size: .94rem; }
+.section { margin-top: 3rem; }
+.section + .section { margin-top: 3.5rem; }
+.page-heading { margin-bottom: 2.8rem; }
+.page-heading + .section { margin-top: 0; }
 
-.about {
-    display: inline-block;
+.dated-list, .publication-list { padding: 0; margin: 0; list-style: none; }
+.dated-list > li {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: .3rem 1.1rem;
+    border-top: 1px solid var(--rule);
+    padding: 1.1rem 0;
 }
+.dated-list > li:last-child, .publication-list > li:last-child { border-bottom: 1px solid var(--rule); }
+.dated-list time { color: var(--muted); font-size: .92rem; font-variant-numeric: tabular-nums; }
+.entry-type { display: block; color: var(--muted); font-size: .78rem; font-weight: 650; letter-spacing: .04em; text-transform: uppercase; }
+.entry-detail { display: block; color: var(--muted); font-size: .92rem; margin-top: .22rem; }
+.publication-list > li { border-top: 1px solid var(--rule); padding: 1.1rem 0; }
+address { font-style: normal; }
 
-.img-left {
-    float: left;
-    min-width: 200px;
-    max-width: 100vw;
-    padding: 1.2em;
-    padding-left: 0;
+.site-footer { border-top: 1px solid var(--rule); color: var(--muted); font-size: .85rem; }
+.footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1.5rem; padding-block: 1.4rem; }
+
+/* Phone and small-tablet layout: no scrolling sideways or hidden navigation. */
+@media (max-width: 720px) {
+    .content { padding-block: 2.4rem 3.8rem; }
+    .intro { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+    .portrait { width: min(11rem, 52vw); margin-top: .4rem; }
+    .section { margin-top: 2.5rem; }
 }
-
-.img-right {
-    float: right;
-    min-width: 200px;
-    max-width: 100vw;
-    padding: 1.2em;
-    padding-right: 0;
-}
-
-.events {
-    height: 700px;
-    width: 100%;
-    display: block;
-}
-
-td {
-    vertical-align: top;
-    text-align: left;
-    padding: .6rem;
-    padding-left: 1.2rem;
+@media (max-width: 480px) {
+    .container { width: min(100% - 2rem, 58rem); }
+    .site-nav { gap: .2rem 1rem; }
+    .dated-list > li { grid-template-columns: minmax(0, 1fr); gap: .2rem; }
 }
